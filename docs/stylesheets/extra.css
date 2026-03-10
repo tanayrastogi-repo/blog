@@ -1,0 +1,192 @@
+/* --- Blog List Layout (Homepage) --- */
+/* Apply single column layout to the main content area on the blog index */
+.md-content__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Ensure child elements like h1 and pagination behave correctly in flex column */
+.md-content__inner > * {
+  width: 100%;
+}
+
+/* --- Blog Post Card Style --- */
+/* Style each post article as a card */
+.md-post {
+  background: var(--md-code-bg-color); /* Use theme background */
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure uniform height in grid */
+}
+
+.md-post:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Cover Image Styling */
+/* Assumes the first image in the post content serves as the cover */
+.md-post__content img:first-of-type {
+  width: 100%;
+  height: 180px; /* Fixed height for consistent cards */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  order: -1; /* Try to push to top if flex context allows, otherwise relies on markup order */
+}
+
+/* Typography & Layout */
+.md-post__title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.md-post__meta {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ensure the date (first child of meta usually) stays left or is specifically styled */
+.md-post__meta > *:first-child {
+  margin-right: auto;
+}
+
+/* If MkDocs-Material uses a specific wrapper for tags/read-time, split them */
+.md-post__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Force reading time to the right if it exists in the meta string */
+.md-post__meta .md-meta__item--readtime {
+  margin-left: auto;
+}
+
+/* Excerpt (Preview Text) Styling */
+.md-post__content {
+  font-size: 0.9rem;
+  color: var(--md-default-fg-color--light);
+  /* Limit preview text visibility */
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* Shows approx. first 10 lines/words equivalent depending on height */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: auto; /* Pushes content to fill space if needed */
+}
+
+/* Link overlay to make card clickable */
+.md-post h2 > a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.md-post { position: relative; }
+.md-post__meta { position: relative; z-index: 2; }
+
+/* --- About Me Profile Card --- */
+.profile-card {
+  text-align: center;
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: var(--md-surface-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.profile-image {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 4px solid var(--md-primary-fg-color);
+}
+
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: var(--md-default-fg-color);
+  transition: color 0.2s;
+}
+
+.social-links a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* --- Pill Navigation Styling --- */
+
+/* 1. Header background and visual separator */
+.md-header {
+  background-color: transparent !important;
+  color: var(--md-default-fg-color) !important;
+  box-shadow: none !important;
+  border-bottom: 2px solid #000; /* The horizontal line from reference */
+  padding-bottom: 10px;
+}
+
+/* 2. Style the Site Branding (Title/Logo) as a dark pill */
+.md-header__button.md-logo, 
+.md-header__title .md-ellipsis {
+  background-color: #333;
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: "Courier New", Courier, monospace; /* Monospace font */
+  font-weight: bold;
+}
+
+/* 3. Style the Navigation Tabs as dark pills on the right */
+.md-tabs {
+  background-color: transparent !important;
+  display: flex;
+  justify-content: flex-end; /* Reposition tabs to the right */
+}
+
+.md-tabs__list {
+  margin-left: auto;
+  gap: 12px;
+}
+
+.md-tabs__link {
+  background-color: #333;
+  color: #fff !important;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+  font-family: "Courier New", Courier, monospace; /* Monospace font */
+  opacity: 1 !important;
+}
+
+/* 4. Hide non-essential header elements (Search, etc.) */
+/* .md-search, .md-header__topic {
+  display: none;
+} */
+
+/* Ensure header content doesn't overflow */
+.md-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

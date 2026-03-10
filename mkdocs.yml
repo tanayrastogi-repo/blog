@@ -1,0 +1,35 @@
+site_name: Tanay Rastogi
+site_description: A presonal blog to just put my ideas into the world.
+site_url: https://tanayrastogi-repo.github.io/blog/
+
+# Themes
+theme:
+  name: material
+  palette:
+    primary: black
+    accent: deep purple
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+
+plugins:
+  - search
+  - blog:
+      blog_dir: .               # This tells the plugin your blog index is at docs/index.md
+      post_dir: posts           # Tells the plugin your posts are in docs/posts/
+      post_excerpt: required    # Ensures excerpts are generated
+      post_date_format: medium  # Use 'medium' for March 5, 2026 format
+      archive: false            # Disable archive page generation
+  - glightbox
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - stylesheets/extra.css
+
+# Explicitly define your two pages
+nav:
+  - Blog: index.md
+  - About Me: about.md
