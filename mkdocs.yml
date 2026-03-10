@@ -20,7 +20,6 @@ plugins:
       post_excerpt: required    # Ensures excerpts are generated
       post_date_format: medium  # Use 'medium' for March 5, 2026 format
       archive: false            # Disable archive page generation
-  - glightbox
 
 markdown_extensions:
   - attr_list

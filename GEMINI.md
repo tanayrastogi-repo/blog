@@ -48,7 +48,6 @@ The project uses `uv` for dependency management.
 - **Plugins:** 
     - `search`: Built-in search functionality.
     - `blog`: Powers the blog index and post metadata.
-    - `glightbox`: Image lightbox support.
 - **Extensions:** 
     - `attr_list`: Allows adding CSS classes and attributes to Markdown elements.
     - `md_in_html`: Enables Markdown rendering inside HTML blocks.
